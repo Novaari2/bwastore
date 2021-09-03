@@ -45,6 +45,7 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
         Route::get('/',[DashboardController::class,'index'])->name('admin-dashboard');
         Route::resource('category', '\App\Http\Controllers\Admin\CategoryController');
         // Route::resource('category', 'CategoryController');
+        Route::resource('user', '\App\Http\Controllers\Admin\UserController');
     });
 
 Auth::routes();
