@@ -20,6 +20,7 @@ use App\Models\Category;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('categories');
+Route::get('/categories/{id}', [App\Http\Controllers\CategoryController::class, 'detail'])->name('categories-detail');
 Route::get('/details/{id}', [App\Http\Controllers\DetailController::class, 'index'])->name('detail');
 Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::get('/success', [App\Http\Controllers\CartController::class, 'success'])->name('success');
@@ -46,6 +47,8 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
         Route::resource('category', '\App\Http\Controllers\Admin\CategoryController');
         // Route::resource('category', 'CategoryController');
         Route::resource('user', '\App\Http\Controllers\Admin\UserController');
+        Route::resource('product', '\App\Http\Controllers\Admin\ProductController');
+        Route::resource('product-gallery', '\App\Http\Controllers\Admin\ProductGalleryController');
     });
 
 Auth::routes();
