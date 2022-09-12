@@ -50,7 +50,7 @@ class ProductGalleryController extends Controller
                 ';
             })
             ->editColumn('photos',function($item){
-                return $item->photos ? '<img src="'.Storage::url($item->photos).'" style="max-height: 80px;" />' : '';
+                return $item->photos ? '<img src="'.Storage::url($item->photos).'" style="max-height: 80px;" />' : 'no_photos';
             })
             ->rawColumns(['action','photos'])
             ->make();
@@ -58,7 +58,7 @@ class ProductGalleryController extends Controller
         return view('pages.admin.product-gallery.index');
     }
 
-    
+
     public function create()
     {
         $products = Product::all();
@@ -85,7 +85,7 @@ class ProductGalleryController extends Controller
         //
     }
 
-    
+
     // public function edit($id)
     // {
 
@@ -94,10 +94,10 @@ class ProductGalleryController extends Controller
 
     // public function update(ProductRequest $request, $id)
     // {
-        
+
     // }
 
-    
+
     public function destroy($id)
     {
         $item = ProductGallery::findOrFail($id);

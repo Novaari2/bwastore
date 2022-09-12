@@ -65,7 +65,7 @@
               </a>
             </div>
             @empty
-                
+
             @endforelse
           </div>
           <div class="row">
